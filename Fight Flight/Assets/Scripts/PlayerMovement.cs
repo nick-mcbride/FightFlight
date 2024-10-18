@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
         transform.Rotate(0, 0, -rotation);
 
-        // Move the player forward
+        // Move the player forward thrust
         if (Input.GetKey(KeyCode.W))
         {
             Vector3 thrust = transform.up * thrustSpeed * Time.deltaTime;
