@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
+    {
+        
+    }
+
+    void Update()
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.tag == "Player")
+        {
+            //game manager needs to set up first
+            //GameManager.instance.InitiateGameOver();
+        }
+        else
+        {
+            //GameManager.instance.IncreaseScore(10);
+        }
+        Destroy(gameObject);
+        Destroy(collision.gameObject);
     }
 }

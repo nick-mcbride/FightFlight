@@ -15,8 +15,8 @@ public class Laser : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject); // Destroy the enemy ship
-            Destroy(gameObject); // Destroy the laser
+            Destroy(other.gameObject); 
+            Destroy(gameObject); 
         }
     }
 }
