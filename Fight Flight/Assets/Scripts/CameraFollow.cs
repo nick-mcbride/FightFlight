@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate() // late update is called after all updates are done
     {
         transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
+        transform.rotation = Quaternion.identity;
     }
 }
 
