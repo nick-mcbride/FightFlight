@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &910420997701746244
+--- !u!1 &3823830881829551798
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 70133083565868656}
-  - component: {fileID: 7203406567196968383}
-  - component: {fileID: 4863915238580225765}
-  - component: {fileID: 8333550640681896913}
-  - component: {fileID: 6059752734286261577}
+  - component: {fileID: 241670229487124367}
+  - component: {fileID: 2859982956675994326}
+  - component: {fileID: 2632338850731714994}
+  - component: {fileID: 7783407501482890441}
+  - component: {fileID: 548324152214643796}
   m_Layer: 0
-  m_Name: enemyShip3
-  m_TagString: Enemy
+  m_Name: enemyShip
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &70133083565868656
+--- !u!4 &241670229487124367
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910420997701746244}
+  m_GameObject: {fileID: 3823830881829551798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.33, y: -1, z: 0}
+  m_LocalPosition: {x: -3.2729642, y: -0.095765114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7203406567196968383
+--- !u!212 &2859982956675994326
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910420997701746244}
+  m_GameObject: {fileID: 3823830881829551798}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: c00c9521b1a5b4847a717f007b67aa4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.26, y: 1.08}
   m_AdaptiveModeThreshold: 0.5
@@ -87,22 +87,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4863915238580225765
+--- !u!50 &2632338850731714994
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910420997701746244}
-  m_BodyType: 0
+  m_GameObject: {fileID: 3823830881829551798}
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -114,13 +114,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &8333550640681896913
+--- !u!58 &7783407501482890441
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910420997701746244}
+  m_GameObject: {fileID: 3823830881829551798}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -149,15 +149,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.63
---- !u!114 &6059752734286261577
+--- !u!114 &548324152214643796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910420997701746244}
+  m_GameObject: {fileID: 3823830881829551798}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 875f6f259e7d3e743a7a80a414570454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySprites:
+  - {fileID: 21300000, guid: c00c9521b1a5b4847a717f007b67aa4f, type: 3}
+  - {fileID: 21300000, guid: ec10a354589d74c4b96175ecff57aa82, type: 3}
+  - {fileID: 21300000, guid: 52ef15bde7e5b984eb3d2dff1f6cb727, type: 3}
+  - {fileID: 21300000, guid: 883a3045db84729438f4c5bbea9f43b1, type: 3}
+  - {fileID: 21300000, guid: 4bed3657007ca2b42bb7418c678265af, type: 3}
+  - {fileID: 21300000, guid: 970b76c4983abd94eb411b2e0fc1a41f, type: 3}
+  - {fileID: 21300000, guid: 18c94b3777125274ab0691f473e558c7, type: 3}
+  speed: 2
+  enemyLaserPrefab: {fileID: 3201200432605151274, guid: 37faf6d49fd8e9f478a502fca14f0150, type: 3}
+  shootInterval: 2
