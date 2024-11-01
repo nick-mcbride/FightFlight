@@ -36,13 +36,12 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            // Move toward the player
+
             Vector2 direction = (player.position - transform.position).normalized;
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-            // Rotate to face the player
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90); // Adjust by -90 if necessary for correct facing direction
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         }
     }
 
@@ -61,11 +60,9 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            // Instantiate laser and set its direction toward the player
             Vector2 direction = (player.position - transform.position).normalized;
             GameObject laser = Instantiate(enemyLaserPrefab, transform.position, Quaternion.identity);
 
-            // Assign the direction to the laser
             laser.GetComponent<EnemyLaser>().SetDirection(direction);
         }
     }
@@ -75,7 +72,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // GameManager.instance.InitiateGameOver();
-            Destroy(gameObject); // Destroy enemy when it collides with the player
+            Destroy(gameObject); 
         }
     }
 }
