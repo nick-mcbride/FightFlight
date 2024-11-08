@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
         shootTimer = shootInterval;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Randomly select a sprite from the list of enemy sprites
         if (enemySprites.Count > 0)
         {
             spriteRenderer.sprite = enemySprites[Random.Range(0, enemySprites.Count)];
@@ -36,7 +35,6 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-
             Vector2 direction = (player.position - transform.position).normalized;
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
@@ -62,7 +60,6 @@ public class Enemy : MonoBehaviour
         {
             Vector2 direction = (player.position - transform.position).normalized;
             GameObject laser = Instantiate(enemyLaserPrefab, transform.position, Quaternion.identity);
-
             laser.GetComponent<EnemyLaser>().SetDirection(direction);
         }
     }
@@ -72,7 +69,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // GameManager.instance.InitiateGameOver();
-            Destroy(gameObject); 
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }
+
