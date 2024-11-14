@@ -296,7 +296,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Game Over Man!
 
-    Game Over!'
+    Game Over!
+
+    Give It One More Try!
+
+    Good Luck!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -323,8 +327,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -620,13 +624,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1436970243}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1436970244}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -687,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &821513218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -838,6 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4203ee628c0ed42a56ea14b3b63490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 821513217}
 --- !u!4 &1436970245
 Transform:
   m_ObjectHideFlags: 0
@@ -1212,6 +1217,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1487129445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2015750277
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2528758
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3317335
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241670229487124367, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823830881829551798, guid: 288ef31bcb91048449799212d496af4e, type: 3}
+      propertyPath: m_Name
+      value: enemyShip
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 288ef31bcb91048449799212d496af4e, type: 3}
 --- !u!1001 &3740161966940792105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1287,3 +1349,4 @@ SceneRoots:
   - {fileID: 329199053}
   - {fileID: 1583659294}
   - {fileID: 1436970245}
+  - {fileID: 2015750277}

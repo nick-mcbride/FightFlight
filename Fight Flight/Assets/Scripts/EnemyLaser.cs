@@ -23,6 +23,14 @@ public class EnemyLaser : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.GameOver();
+            }
+            else
+            {
+                Debug.LogError("GameManager instance is null in EnemyLaser.OnTriggerEnter2D");
+            }
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

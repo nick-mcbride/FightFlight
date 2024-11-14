@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour
         {
             spriteRenderer.sprite = enemySprites[Random.Range(0, enemySprites.Count)];
         }
+
+        if (GameManager.instance == null)
+        {
+            Debug.LogError("GameManager instance is null in Enemy.Start");
+        }
     }
 
     void Update()
@@ -69,7 +74,14 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.GameOver();
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.GameOver();
+            }
+            else
+            {
+                Debug.LogError("GameManager instance is null in Enemy.OnTriggerEnter2D");
+            }
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
