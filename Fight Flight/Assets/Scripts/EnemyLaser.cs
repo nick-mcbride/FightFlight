@@ -9,7 +9,7 @@ public class EnemyLaser : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.position += (Vector3)direction * speed * Time.deltaTime;
     }
 
     public void SetDirection(Vector2 dir)
@@ -26,9 +26,5 @@ public class EnemyLaser : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-        //else if (collision.CompareTag("Boundary")) // might add this later
-        //{
-        //    Destroy(gameObject);
-        //}
     }
 }

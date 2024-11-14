@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed = 2f;
     public GameObject enemyLaserPrefab;
     public float shootInterval = 2f;
+    public Transform firePoint; // Reference to the firePoint
 
     private Transform player;
     private float shootTimer;
@@ -58,8 +59,8 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            GameObject laser = Instantiate(enemyLaserPrefab, transform.position, Quaternion.identity);
+            Vector2 direction = (player.position - firePoint.position).normalized;
+            GameObject laser = Instantiate(enemyLaserPrefab, firePoint.position, Quaternion.identity);
             laser.GetComponent<EnemyLaser>().SetDirection(direction);
         }
     }
@@ -68,10 +69,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            // GameManager.instance.InitiateGameOver();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
 }
-
