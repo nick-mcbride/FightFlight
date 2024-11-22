@@ -7,10 +7,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject gameOverPanel;
+    public HealthBar healthBar;
+    public PointsSystem pointsSystem;
+
+    private int maxHealth = 100;
+    private int currentHealth;
 
     void Awake()
     {
-        // Ensure that there is only one instance of GameManager
         if (instance == null)
         {
             instance = this;
@@ -24,7 +28,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        gameOverPanel.SetActive(false);
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("GameOverPanel is not set in the Inspector");
+        }
+
+        if (healthBar != null)
+        {
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else
+        {
+            Debug.LogError("HealthBar is not set in the Inspector");
+        }
+
+        if (pointsSystem == null)
+        {
+            Debug.LogError("PointsSystem is not set in the Inspector");
+        }
     }
 
     public void GameOver()
@@ -45,4 +71,21 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void AddPoints(int points)
+    {
+        pointsSystem.AddPoints(points);
+    }
 }
+

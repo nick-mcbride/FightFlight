@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed = 2f;
     public GameObject enemyLaserPrefab;
     public float shootInterval = 2f;
-    public Transform firePoint; // Reference to the firePoint
+    public Transform firePoint;
 
     private Transform player;
     private float shootTimer;
@@ -76,14 +76,14 @@ public class Enemy : MonoBehaviour
         {
             if (GameManager.instance != null)
             {
-                GameManager.instance.GameOver();
+                GameManager.instance.TakeDamage(1); // Take 1 damage
             }
             else
             {
                 Debug.LogError("GameManager instance is null in Enemy.OnTriggerEnter2D");
             }
-            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
 }
+

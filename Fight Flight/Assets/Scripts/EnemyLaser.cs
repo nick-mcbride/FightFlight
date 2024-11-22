@@ -25,14 +25,14 @@ public class EnemyLaser : MonoBehaviour
         {
             if (GameManager.instance != null)
             {
-                GameManager.instance.GameOver();
+                GameManager.instance.TakeDamage(1); // Take 1 damage
             }
             else
             {
                 Debug.LogError("GameManager instance is null in EnemyLaser.OnTriggerEnter2D");
             }
-            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
 }
+
