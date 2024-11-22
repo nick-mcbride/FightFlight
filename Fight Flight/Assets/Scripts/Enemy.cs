@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public List<Sprite> enemySprites;
     public float speed = 2f;
     public GameObject enemyLaserPrefab;
-    public float shootInterval = 2f;
+    public float shootInterval = 3f;
     public Transform firePoint;
 
     private Transform player;
@@ -85,5 +85,12 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-}
 
+    private void OnDestroy()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.AddPoints(10); // Add points when enemy is destroyed
+        }
+    }
+}

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public HealthBar healthBar;
     public PointsSystem pointsSystem;
 
-    private int maxHealth = 100;
+    private int maxHealth = 10;
     private int currentHealth;
 
     void Awake()
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log("Player took damage. Current health: " + currentHealth);
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
@@ -88,4 +89,3 @@ public class GameManager : MonoBehaviour
         pointsSystem.AddPoints(points);
     }
 }
-
