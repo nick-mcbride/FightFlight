@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
+    public float smoothSpeed = 0.1f; // Speed of the smooth transition
 
     public void SetMaxHealth(int health)
     {
@@ -21,7 +23,23 @@ public class HealthBar : MonoBehaviour
     {
         if (slider != null)
         {
-            slider.value = health;
+            StartCoroutine(SmoothHealthChange(health));
         }
     }
+
+    private IEnumerator SmoothHealthChange(int targetHealth)
+    {
+        float currentHealth = slider.value;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < smoothSpeed)
+        {
+            slider.value = Mathf.Lerp(currentHealth, targetHealth, elapsedTime / smoothSpeed);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        slider.value = targetHealth;
+    }
 }
+

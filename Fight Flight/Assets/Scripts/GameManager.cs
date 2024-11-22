@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public HealthBar healthBar;
     public PointsSystem pointsSystem;
+    public WinStateManager winStateManager;
+    public GameObject healthBarUI;
+    public GameObject pointsTextUI;
 
     private int maxHealth = 10;
     private int currentHealth;
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
         {
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(maxHealth); // Ensure health bar is set to max health
         }
         else
         {
@@ -51,6 +55,21 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("PointsSystem is not set in the Inspector");
         }
+
+        if (winStateManager == null)
+        {
+            Debug.LogError("WinStateManager is not set in the Inspector");
+        }
+
+        if (healthBarUI == null)
+        {
+            Debug.LogError("HealthBarUI is not set in the Inspector");
+        }
+
+        if (pointsTextUI == null)
+        {
+            Debug.LogError("PointsTextUI is not set in the Inspector");
+        }
     }
 
     public void GameOver()
@@ -59,7 +78,15 @@ public class GameManager : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
         }
+        healthBarUI.SetActive(false);
+        pointsTextUI.SetActive(false);
         Time.timeScale = 0f;
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit button clicked");
+        Application.Quit();
     }
 
     public void RestartGame()
@@ -68,7 +95,13 @@ public class GameManager : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
         }
+        healthBarUI.SetActive(true);
+        pointsTextUI.SetActive(true);
         Time.timeScale = 1f;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(maxHealth); // Ensure health bar is set to max health
+        pointsSystem.ResetPoints();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -80,12 +113,32 @@ public class GameManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            GameOver();
+            if (gameObject != null)
+            {
+                GameOver();
+            }
         }
     }
 
     public void AddPoints(int points)
     {
         pointsSystem.AddPoints(points);
+
+        if (pointsSystem.GetPoints() >= 200)
+        {
+            if (winStateManager != null)
+            {
+                winStateManager.ShowWinState();
+            }
+            else
+            {
+                Debug.LogError("WinStateManager is not set in the Inspector");
+            }
+        }
     }
 }
+
+
+
+
+

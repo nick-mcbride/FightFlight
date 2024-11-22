@@ -8,12 +8,6 @@ public class PointsSystem : MonoBehaviour
 
     void Start()
     {
-        if (pointsText == null)
-        {
-            Debug.LogError("PointsText is not set in the Inspector");
-            return;
-        }
-
         points = 0;
         UpdatePointsText();
     }
@@ -24,12 +18,21 @@ public class PointsSystem : MonoBehaviour
         UpdatePointsText();
     }
 
+    public int GetPoints()
+    {
+        return points;
+    }
+
+    public void ResetPoints()
+    {
+        points = 0;
+        UpdatePointsText();
+    }
+
     void UpdatePointsText()
     {
-        if (pointsText != null)
-        {
-            pointsText.text = "Points: " + points.ToString();
-        }
+        pointsText.text = "Points: " + points.ToString();
     }
 }
+
 

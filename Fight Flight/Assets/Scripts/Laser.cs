@@ -15,9 +15,15 @@ public class Laser : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            GameManager.instance.AddPoints(10); 
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.AddPoints(10); // Add points
+            }
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }
 }
+
+
+
